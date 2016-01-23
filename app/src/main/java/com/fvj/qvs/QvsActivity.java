@@ -41,15 +41,16 @@ public class QvsActivity extends FragmentActivity implements OnMapReadyCallback 
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        LatLng floripa = new LatLng(-27.6, -48.5);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(floripa));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
-
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             mMap.setMyLocationEnabled(true);
         } else {
             mMap.addMarker(new MarkerOptions().position(floripa).title("tax tolo?"));
         }
+
+        LatLng floripa = new LatLng(-27.6, -48.5); // zoom 10
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(floripa));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(10), 5000, null);
+
 
     }
 }
